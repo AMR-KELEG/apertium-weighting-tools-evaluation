@@ -15,7 +15,7 @@ W2V_LAPLACE=$(mktemp -d)
 W2V_SGT=$(mktemp -d)
 RESULTS_FILE="results/w2v"
 cat "${TAGGED_CORPUS}" | apertium-cleanstream -n > "${CLEANED_CORPUS}"
-cat ../../apertium-hbs/hbs-tagger-data/hbs.untagged > "${UNTAGGED_CORPUS}"
+cat ../../apertium-hbs/hbs-tagger-data/hbs.tagged.txt > "${UNTAGGED_CORPUS}"
 
 
 if [ ! -z "${WIKI_DUMP}" ]

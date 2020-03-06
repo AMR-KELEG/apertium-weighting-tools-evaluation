@@ -9,7 +9,7 @@ RAND_SGT=$(mktemp -d)
 RESULTS_FILE="results/rand"
 cat "${TAGGED_CORPUS}" | apertium-cleanstream -n > "${CLEANED_CORPUS}"
 
-cat ../../apertium-hbs/hbs-tagger-data/hbs.untagged > "${UNTAGGED_CORPUS}"
+cat ../../apertium-hbs/hbs-tagger-data/hbs.tagged.txt > "${UNTAGGED_CORPUS}"
 
 corpus_split.py "${CLEANED_CORPUS}" -n 5 -o "${FOLDS}"
 random_fit.py -i "${FOLDS}" -b "${BIN}" -corpus "${UNTAGGED_CORPUS}" -o "${RAND_LAPLACE}"

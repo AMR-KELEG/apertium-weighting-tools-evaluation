@@ -10,7 +10,7 @@ CG_SGT=$(mktemp -d)
 RESULTS_FILE="results/cg"
 cat "${TAGGED_CORPUS}" | apertium-cleanstream -n > "${CLEANED_CORPUS}"
 
-cat ../../apertium-hbs/hbs-tagger-data/hbs.untagged > "${UNTAGGED_CORPUS}"
+cat ../../apertium-hbs/hbs-tagger-data/hbs.tagged.txt > "${UNTAGGED_CORPUS}"
 
 corpus_split.py "${CLEANED_CORPUS}" -n 5 -o "${FOLDS}"
 constraintgrammar_fit.py -i "${FOLDS}" -b "${BIN}" -corpus "${UNTAGGED_CORPUS}" -cg "${CG}" -o "${CG_LAPLACE}"
